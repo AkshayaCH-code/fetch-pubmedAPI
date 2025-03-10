@@ -1,7 +1,7 @@
 import sys
 import logging
 import argparse
-from task.fetch_papers import get_papers_list  # Ensure this is the correct import path
+from task.fetch_data import get_papers_list  # Ensure this is the correct import path
 
 
 def main():
