@@ -3,7 +3,7 @@
 ## Code Organization
 
 This project is structured as follows:
-- `your_module_name.py`: Contains the logic for fetching and processing papers from the PubMed API.
+- `fetch_data.py`: Contains the logic for fetching and processing papers from the PubMed API.
 - `pyproject.toml`: Poetry configuration file that defines the dependencies and setup.
 
 ## Dependencies
