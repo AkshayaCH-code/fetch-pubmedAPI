@@ -83,5 +83,11 @@ The project uses the following dependencies:
 
 These dependencies are managed using Poetry and specified in `pyproject.toml`.
 
+
+## Output
+
+Output file will be stored in project
+
+
 ---
 
