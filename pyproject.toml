@@ -1,0 +1,29 @@
+[project]
+name = "task"
+version = "0.1.0"
+description = "fetch research papers based on a user-specified query"
+authors = [
+    {name = "Akshaya"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "requests (>=2.32.3,<3.0.0)",
+    "pandas (>=2.2.3,<3.0.0)",
+    "numpy (>=2.2.3,<3.0.0)"
+]
+
+[tool.poetry]
+
+# Define the scripts section to create executable commands
+#[tool.poetry.scripts]
+#get-papers-list = "task.cli:get_papers_list"  # Modify this to match your actual Python module and function
+[tool.poetry.scripts]
+get-papers-list = "task.cli:main"
+
+[tool.poetry.group.dev.dependencies]
+requests = "^2.32.3"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
