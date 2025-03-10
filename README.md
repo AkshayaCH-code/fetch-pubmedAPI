@@ -65,11 +65,12 @@ poetry run get-papers-list "your_query_here"
 
 ## API Configuration
 
-The project fetches papers from the PubMed API using the `eutils` endpoints. Ensure that you have a valid API key set in `fetch_data.py`:
+The project fetches papers from the PubMed API using the `eutils` endpoints. Ensure that you have a valid API and email key set in `constants.py`:
 
 ```python
+# constants.py
 API_KEY = "your_api_key_here"
-email="your email"
+EMAIL = "your_email_here"
 ```
 
 ## Dependencies
@@ -83,3 +84,4 @@ The project uses the following dependencies:
 These dependencies are managed using Poetry and specified in `pyproject.toml`.
 
 ---
+
