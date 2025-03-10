@@ -6,13 +6,13 @@ import sys
 import logging
 from typing import List, Dict
 import re
+from task.constants import API_KEY, PUBMED_API_URL, EMAIL,DB
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 
-# Constants
-PUBMED_API_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
-DB = "pubmed"
+
+
 
 
 # Function to search PubMed for papers based on a query
@@ -22,8 +22,8 @@ def search_papers(query: str) -> List[str]:
         "db": DB,
         "term": query,
         "retmode": "json",  # Request JSON instead of XML
-        "api_key": "08644cb8d7fe3482e79cea4c76b2fe841809",  # Add your API key here if needed
-        "email": "akshaya.pdev@gmail.com"  # Optional: your email for identification
+        "api_key": API_KEY,  # Add your API key here if needed
+        "email": EMAIL # Optional: your email for identification
     }
     try:
         response = requests.get(url, params=params)
@@ -66,8 +66,8 @@ def fetch_paper_details(pmid: str) -> Dict[str, str]:
         "id": pmid,
         "retmode": "text",  # Request plain text instead of JSON
         "rettype": "abstract",
-        "api_key": "08644cb8d7fe3482e79cea4c76b2fe841809",
-        "email": "akshaya.pdev@gmail.com"
+        "api_key": API_KEY,
+        "email": EMAIL
     }
 
     try:
@@ -169,21 +169,3 @@ def get_papers_list(query: str, debug: bool, output_file: str):
     except requests.exceptions.RequestException as e:
         logging.error(f"Error during API call: {e}")
         sys.exit(1)
-
-
-# Command-line argument parsing
-def parse_args():
-    parser = argparse.ArgumentParser(description="Fetch papers from PubMed.")
-    parser.add_argument("query", help="The query to search in PubMed.")
-    parser.add_argument("-d", "--debug", action="store_true", help="Enable debug logging.")
-    parser.add_argument("-f", "--file", help="The filename to save the results.")
-    return parser.parse_args()
-
-
-def main():
-    args = parse_args()
-    get_papers_list(args.query, args.debug, args.file)
-
-
-if __name__ == "__main__":
-    main()
